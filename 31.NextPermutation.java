@@ -2,40 +2,35 @@ import java.util.Arrays;
 import java.util.Scanner;
 class Solution {
     public void nextPermutation(int[] nums) {
-        int x=nums[0];
-        int y=nums[1];
-        int z=nums[2];
-        int a=Math.max(Math.max(x,y),z);
-        int e;
-        if(a==x){
-            e=Math.max(y,z);
-        }else if(a==y){
-            e=Math.max(a,z);
-        }else{
-            e=Math.max(x,y);
+        if(nums.length==1){
+            return;
         }
-        int c=Math.min(x,y);
-        int d=Math.min(c,z);
-
-        if(x<=y && y<z ){
-            nums[0]=x;
-            nums[1]=z;
-            nums[2]=y;
+        if(nums.length==2){
+            int temp=nums[0];
+            nums[0]=nums[1];
+            nums[1]=temp;
+            return;
         }
-        else if(x<y && y>z){
-            nums[0]=y;
-            nums[1]=x;
-            nums[2]=z;
+         int i = nums.length - 2;
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
         }
-        else if(x>y && y<z){
-            nums[0]=x;
-            nums[1]=z;
-            nums[2]=y;
+        if (i >= 0) {
+            int j = nums.length - 1;
+            while (nums[j] <= nums[i]) {
+                j--;
+            }
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
         }
-        else{
-            nums[0]=d;
-            nums[1]=e;
-            nums[2]=a;
+        int left = i + 1, right = nums.length - 1;
+        while (left < right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
         }
     }
     public static void main(String[] args){
