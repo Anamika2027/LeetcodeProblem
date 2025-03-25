@@ -1,7 +1,9 @@
 import java.util.Scanner;
 class Solution {
-    public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> arr=new ArrayList<>();
+    public List<List<Integer>> generate(int numRows) {//What is List<List<Integer>>?
+                                                    // List<List<Integer>> is a list of lists, meaning each element of the outer list is another list.
+                                                    // In this case, it is used to store Pascal’s Triangle, where each row is a List<Integer>, and the entire triangle is stored in List<List<Integer>>.
+        List<List<Integer>> arr=new ArrayList<>();//ArrayList is used to store multiple rows of Pascal’s Triangle dynamically
         for(int i=0;i<numRows;i++){
             List<Integer> row = new ArrayList<>();
 
