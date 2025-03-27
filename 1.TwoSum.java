@@ -1,6 +1,5 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int sum=0;
         for(int i=0;i<nums.length;i++){
             for(int j=i+1;j<nums.length;j++){
                 if(nums[i]+nums[j]==target){
@@ -20,11 +19,6 @@ class Solution {
         }
         Solution ob=new Solution();
         int[] result=ob.twoSum(arr,target);
-        // if(result==2){
-        //     system.out.println(Arrays.toString(result));
-        // }else{
-        //     System.out.println()
-        // }
-        System.out.println();
+        System.out.println(Arrays.toString(result));
     }
 }
