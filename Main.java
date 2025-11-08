@@ -1,27 +1,47 @@
 import java.util.*;
 class Solution {
-    public ArrayList<Integer> leaders(int[] nums) {
-        ArrayList<Integer> Leader=new ArrayList<>();
+    public int upperBound(int[] nums, int x) {
         int n=nums.length;
-        int max=nums[n-1];
-        Leader.add(max);
-        for(int i=n-2;i>=0;i--){
-            if(max<nums[i]){
-                Leader.add(nums[i]);
+        int start=0;
+        int last=n-1;
+        int min=n;
+        while(start<=last){
+            int mid=start+(last-start)/2;
+            if(nums[mid]==x){
+                if(nums[mid]>x){
+                    min=mid;
+                    last=mid-1;
+                    
+                }else{
+                    start=mid+1;
+                }
             }
-            max=Math.max(max,nums[i]);
-
         }
-        Collections.reverse(Leader);
-        return Leader;
+        return min;
     }
-}
 
-public class Main {
+    
     public static void main(String[] args) {
-        Solution s = new Solution();
-        int[] nums = {1, 2, 5, 3, 1, 2};
-        List<Integer> ans = s.leaders(nums);  
-        System.out.println(ans);
+        Scanner sc = new Scanner(System.in);
+        Solution sol = new Solution();
+
+        // Input
+        System.out.print("Enter size of array: ");
+        int n = sc.nextInt();
+
+        int[] nums = new int[n];
+        System.out.println("Enter elements of sorted array:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter x: ");
+        int x = sc.nextInt();
+
+        // Find upper bound
+        int result = sol.upperBound(nums, x);
+
+        // Output
+        System.out.println("Upper Bound index: " + result);
     }
 }
