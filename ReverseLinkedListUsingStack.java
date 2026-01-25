@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        
+
         Stack<Integer> st=new Stack<>();
         while(head!=null){
             st.push(head.val);
