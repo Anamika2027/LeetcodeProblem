@@ -23,11 +23,7 @@ class Solution {
             ans.append(carry);
             carry=carry/10;
         }
-        return ans.reverse().toString();
-
-
-       
-
+        return ans.reverse().toString();       
 
     }
 }
