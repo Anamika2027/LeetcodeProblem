@@ -14,18 +14,13 @@
  * }
  */
 class Solution {
-    public int sumOfLeftLeaves(TreeNode root) {
-        
-        if(root==null) return 0;
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p==null && q==null) return true;
+        if(p==null || q==null) return false;
+        if(p.val!=q.val) return false;
 
-        TreeNode L=root.left;
-        int curr=0;
-
-        if(L!=null && L.right==null && L.left==null){
-            curr=L.val;
-        }
-
-        return curr+ sumOfLeftLeaves(root.right) + sumOfLeftLeaves(root.left);
+        return isSameTree(p.left,q.left)&&
+        isSameTree(p.right,q.right);
         
     }
 }
