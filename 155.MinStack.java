@@ -40,4 +40,4 @@ class MinStack {
  * obj.pop();
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();
- */
+ */HashMap<Integer,Integer> mp=new HashMap<>();
